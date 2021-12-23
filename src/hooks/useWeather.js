@@ -25,14 +25,15 @@ export function useWeather(city) {
     const mappedData = {
       location: weatherData.data.name,
       condition: weatherData.data.cod,
-      date: convertDate(weatherData.data.dt),
+      day: convertDate(weatherData.data.dt).weakDay,
+      hours: convertDate(weatherData.data.dt).hours,
       description: weatherData.data.weather[0].description,
       country: codeToNameConvert(weatherData.data.sys.country),
       feelsLike: Math.round(weatherData.data.main.feels_like),
       humidity: weatherData.data.main.humidity,
       iconId: weatherData.data.weather[0].icon,
-      sunrise: weatherData.data.sys.sunrise,
-      sunset: weatherData.data.sys.sunset,
+      sunrise: convertDate(weatherData.data.sys.sunrise).hours,
+      sunset: convertDate(weatherData.data.sys.sunset).hours,
       temperature: Math.round(weatherData.data.main.temp),
       timezone: weatherData.data.timezone / 3600, // convert from seconds to hours
       windSpeed: Math.round(weatherData.data.wind.speed * 3.6), // convert from m/s to km/h
@@ -46,14 +47,19 @@ export function useWeather(city) {
       return regionNames.of(countryCode || 'TR');
     }
 
-    function convertDate(seconds) {
-      const date = new Date();
+    function convertDate(miliSeconds) {
+      const date = new Date(miliSeconds * 1000); // Epoch -> 1 January 1970
       // Time format
-      let day = Math.floor(seconds / (3600 * 24));
-      let hour = Math.floor((seconds % (3600 * 24)) / 3600);
-      let min = Math.floor((seconds % 3600) / 60);
-      let sec = Math.floor(seconds % 60);
-      return date.setUTCDate(day);
+
+      const day = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+      }).format(date);
+      const hoursAndMin = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+      }).format(date);
+
+      return { weakDay: day, hours: hoursAndMin };
     }
     return mappedData;
   }
