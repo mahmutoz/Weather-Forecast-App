@@ -3,9 +3,6 @@ import { useMainContext } from '../../context/MainContext';
 
 function CurrentWeather() {
   const { weatherData } = useMainContext();
-  // Country Name
-  console.log('Gün:' + weatherData.hours);
-  console.log('Sonuç:', weatherData);
   return (
     <div>
       <h2 className="text-center pt-3 text-2xl text-gray-700 font-semibold">
@@ -21,8 +18,7 @@ function CurrentWeather() {
           {weatherData.description}
         </figcaption>
       </figure>
-      <div className="border border-gray-200 border-bottom w-1/2 my-3 mx-auto"></div>
-      <div className="flex h-full flex-col justify-between">
+      <div className="flex h-full flex-col justify-between mt-5">
         <div className="flex mb-3">
           <span className="text-7xl">
             <strong>{weatherData.temperature}</strong>
@@ -36,6 +32,17 @@ function CurrentWeather() {
           </span>
           <time className="text-gray-400">{weatherData.hours}</time>
         </div>
+      </div>
+      <div className="border-b border-gray-200 border-bottom w-full my-8 mx-auto"></div>
+      <div>
+        <div className="flex items-center">
+          <img
+            src={`${process.env.REACT_APP_ICON_URL}${weatherData.iconId}.png`}
+            alt={weatherData.description}
+          />
+          <span className="capitalize pl-1">{weatherData.description}</span>
+        </div>
+        <div></div>
       </div>
     </div>
   );

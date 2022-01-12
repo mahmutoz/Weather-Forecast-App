@@ -2,10 +2,12 @@ import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { useMainContext } from '../../context/MainContext';
 import { useWeather } from '../../hooks/useWeather';
+import GetUserLocation from './GetUserLocation';
 
 function SearchBar() {
   const { search, setSearch } = useMainContext();
-  useWeather(search);
+
+  useWeather('forecast', search, '');
   return (
     <div className="flex items-center bg-white border border-gray-200 rounded-2xl overflow-hidden">
       <label
@@ -22,6 +24,7 @@ function SearchBar() {
         placeholder="Search for places..."
         autoComplete="off"
       />
+      <GetUserLocation />
     </div>
   );
 }

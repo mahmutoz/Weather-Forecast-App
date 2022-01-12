@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const MainContext = createContext();
 export const MainProvider = ({ children }) => {
-  const [search, setSearch] = useState('Kocaeli Province');
+  const [search, setSearch] = useState('Ankara');
   const [weatherData, setWeatherData] = useState([]);
 
   const values = {
