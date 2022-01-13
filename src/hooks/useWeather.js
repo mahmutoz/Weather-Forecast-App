@@ -1,31 +1,46 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useMainContext } from 'context/MainContext';
+import { usePosition } from 'use-position';
 
 const api = {
   base: process.env.REACT_APP_API_URL,
   key: process.env.REACT_APP_API_KEY,
 };
 
-export function useWeather(endpoint, city, latLon) {
-  const { weatherData, setWeatherData, search } = useMainContext();
+export function useWeather(city) {
+  const { weatherData, setWeatherData, search, isLatLon, setLoading } =
+    useMainContext();
+  const { latitude, longitude, error } = usePosition();
   const lang = navigator.language;
 
+  const latLon = {
+    lat: latitude,
+    lon: longitude,
+  };
+
   useEffect(() => {
-    axios(
-      `${api.base}/${endpoint}?${
-        latLon.isDenied === false
-          ? 'q=' + city
-          : 'lat=' + latLon.lat + '&lon=' + latLon.lon
-      }&units=metric&cnt=7&appid=${api.key}&lang=${lang}`
-    ).then((result) => {
-      if (result.status === 200) {
-        setWeatherData(result);
-        setWeatherData(getProperties(result.data));
-        console.log('All Data:', result);
-      }
-    });
-  }, [search]);
+    if (error != null && latLon) {
+      console.log('Erişim reddedildi!');
+    } else {
+      axios(
+        `${api.base}/${'forecast'}?${
+          error == null && isLatLon === false
+            ? 'q=' + city
+            : 'lat=' + latLon.lat + '&lon=' + latLon.lon
+        }&units=metric&cnt=7&appid=${api.key}&lang=${lang}`
+      ).then((result) => {
+        if (result.status === 200) {
+          setWeatherData(result);
+          setWeatherData(getProperties(result.data));
+          console.log('All Data:', result);
+          setLoading(true);
+        } else {
+          setLoading(false);
+        }
+      });
+    }
+  }, [search, error]);
 
   console.log('Weather data:', weatherData);
   function getProperties(weatherData) {
