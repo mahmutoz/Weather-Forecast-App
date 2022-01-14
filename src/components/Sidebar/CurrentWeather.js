@@ -17,9 +17,9 @@ function CurrentWeather() {
           alt={weatherData.description}
         />
       </figure>
-      <div className="flex h-full flex-col justify-between mt-5">
-        <div className="flex mb-3">
-          <span className="text-7xl">
+      <div className="flex h-full flex-col justify-center mt-5 items-center">
+        <div className="flex h-36 w-36 justify-center items-center mb-3 shadow-xl rounded-full p-6">
+          <span className="text-6xl">
             <strong>{weatherData.temperature}</strong>
           </span>
           <span className="text-3xl">°</span>
