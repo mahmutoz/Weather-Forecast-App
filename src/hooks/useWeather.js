@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useMainContext } from 'context/MainContext';
-import { usePosition } from 'use-position';
 
 const api = {
   base: process.env.REACT_APP_API_URL,
@@ -12,34 +11,20 @@ const lang = navigator.language;
 export function useWeather() {
   const { weatherData, setWeatherData, search, isLatLon, setLoading } =
     useMainContext();
-  const { latitude, longitude, error } = usePosition();
-
-  const latLon = {
-    lat: latitude,
-    lon: longitude,
-  };
 
   useEffect(() => {
-    if (error != null && latLon) {
-      console.log('Erişim reddedildi!');
-    } else {
-      axios(
-        `${api.base}/forecast?${
-          error == null && isLatLon === false
-            ? 'q=' + search
-            : 'lat=' + latLon.lat + '&lon=' + latLon.lon
-        }&units=metric&cnt=9&appid=${api.key}&lang=${lang}`
-      ).then((result) => {
-        if (result.status === 200) {
-          console.log('All Data:', result);
-          setWeatherData(getProperties(result.data));
-          setLoading(true);
-        } else {
-          setLoading(false);
-        }
-      });
-    }
-  }, [search, error]);
+    axios(
+      `${api.base}/forecast?q=${search}&units=metric&cnt=9&appid=${api.key}&lang=${lang}`
+    ).then((result) => {
+      if (result.status === 200) {
+        console.log('All Data:', result);
+        setWeatherData(getProperties(result.data));
+        setLoading(true);
+      } else {
+        setLoading(false);
+      }
+    });
+  }, [search]);
 }
 
 function getProperties(weatherData) {
@@ -62,7 +47,8 @@ function getProperties(weatherData) {
     sunset: convertDate(weatherData.city.sunset).hours,
     temperature: Math.round(weatherData.list[0].main.temp),
     timezone: weatherData.city.timezone / 3600, // convert from seconds to hours
-    windSpeed: Math.round(weatherData.list[0].wind.speed * 3.6), // convert from m/s to km/h
+    windSpeed: (weatherData.list[0].wind.speed * 3.6).toFixed(1), // convert from m/s to km/h
+    windDeg: weatherData.list[0].wind.deg,
     list: weatherData.list.slice(1, 9),
   };
 
