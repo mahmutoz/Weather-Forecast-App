@@ -10,6 +10,6 @@
     font-family: 'Mulish', sans-serif;
   }
   #root {
-    @apply grid place-items-center min-h-screen py-24 bg-gray-300;
+    @apply grid place-items-center min-h-screen py-5 bg-gray-300;
   }
 }

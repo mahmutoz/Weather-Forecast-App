@@ -7,7 +7,7 @@ function HighlightsItem({ subtitle, children }) {
   const { weatherData } = useMainContext();
 
   return (
-    <div className="flex flex-col bg-gray-50 p-7 rounded-3xl mt-5">
+    <div className="flex flex-col justify-center bg-gray-50 p-4 rounded-3xl mt-2">
       <SubTitle subtitle={subtitle} />
       {children}
     </div>

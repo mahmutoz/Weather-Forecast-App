@@ -23,10 +23,13 @@ function CurrentWeather() {
           <span className="text-6xl">
             <strong>{weatherData.temperature}</strong>
           </span>
-          <span className="text-3xl">°</span>
-          <span className="text-2xl">C</span>
+          <span className="text-3xl pb-5">°</span>
+          <span className="text-2xl pb-4">C</span>
         </div>
-        <div className="flex items-end mt-5">
+        <span className="text-gray-500 text-sm font-semibold mt-4">
+          Feels Like: {weatherData.feelsLike}°
+        </span>
+        <div className="flex items-end mt-4">
           <span className="text-3xl font-semibold pr-2">
             {weatherData.day},
           </span>

@@ -4,7 +4,7 @@ import Highlights from './Highlights';
 
 function Main() {
   return (
-    <div className="bg-gray-200 flex-1 px-12 py-6">
+    <div className="bg-gray-200 flex-1 px-12 py-5">
       <AllForecast />
       <Highlights />
     </div>

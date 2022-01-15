@@ -32,6 +32,7 @@ function getProperties(weatherData) {
     location: weatherData.city.name,
     condition: weatherData.cod,
     day: convertDate(weatherData.list[0].dt).weakDay,
+    dayShort: convertDate(weatherData.list[0].dt, 'short').weakDay,
     hours: weatherData.list[0].dt_txt
       .split(' ')[1]
       .split(':')
@@ -46,6 +47,8 @@ function getProperties(weatherData) {
     sunrise: convertDate(weatherData.city.sunrise).hours,
     sunset: convertDate(weatherData.city.sunset).hours,
     temperature: Math.round(weatherData.list[0].main.temp),
+    tempMax: Math.round(weatherData.list[0].main.temp_max),
+    tempMin: Math.round(weatherData.list[0].main.temp_min),
     timezone: weatherData.city.timezone / 3600, // convert from seconds to hours
     windSpeed: (weatherData.list[0].wind.speed * 3.6).toFixed(1), // convert from m/s to km/h
     windDeg: weatherData.list[0].wind.deg,
@@ -62,12 +65,12 @@ function getProperties(weatherData) {
   return mappedData;
 }
 
-export default function convertDate(miliSeconds) {
+export default function convertDate(miliSeconds, type = 'long') {
   const date = new Date(miliSeconds * 1000); // Epoch -> 1 January 1970
   // Time format
 
   const day = new Intl.DateTimeFormat(`${lang}`, {
-    weekday: 'long',
+    weekday: type,
   }).format(date);
   const hoursAndMin = new Intl.DateTimeFormat(`${lang}`, {
     hour: 'numeric',

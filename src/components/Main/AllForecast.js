@@ -17,7 +17,7 @@ function AllForecast() {
             key={index}
             temp={Math.round(list.main.temp)}
             icon={list.weather[0].icon}
-            day={convertDate(list.dt)?.weakDay?.substring(0, 3)}
+            day={convertDate(list.dt, 'short')?.weakDay}
             hour={list.dt_txt.split(' ')[1].split(':').splice(0, 2).join(':')}
           />
         ))}
