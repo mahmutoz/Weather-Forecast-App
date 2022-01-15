@@ -8,7 +8,7 @@ function CurrentWeather() {
 
   return loading ? (
     <div>
-      <h2 className="text-center pt-3 text-2xl text-gray-700 font-semibold">
+      <h2 className="text-center pt-3 text-2xl text-gray-700 font-semibold max-w-xs">
         {weatherData.location + ', ' + weatherData.country}{' '}
       </h2>
       <figure className="flex items-center justify-center">
@@ -43,7 +43,13 @@ function CurrentWeather() {
           <span className="capitalize pl-1">{weatherData.description}</span>
         </div>
         <div className="flex items-center">
-          <BsCloudRainHeavy size={25} className="mx-3" />
+          <figure>
+            <img
+              className="w-12 mr-1"
+              src={require(`../../icons/rain-drops.svg`)}
+              alt={weatherData.description}
+            />
+          </figure>
           <span className="capitalize pl-1">Rain - {weatherData.rain}%</span>
         </div>
         <div></div>
