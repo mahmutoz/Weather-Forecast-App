@@ -2,7 +2,7 @@ import React from 'react';
 
 function ForecastDayItem({ temp, icon, day, hour }) {
   return (
-    <li className="flex flex-col justify-center items-center bg-gray-50 rounded-xl py-2">
+    <li className="flex flex-col justify-center items-center bg-white rounded-xl py-2">
       <span className="font-semibold text-lg">{day}</span>
       <span className="text-xs text-gray-500">{hour}</span>
       <img

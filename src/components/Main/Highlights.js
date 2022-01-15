@@ -10,28 +10,28 @@ import HighlightsItem from './HighlightsItem';
 function Highlights() {
   const { weatherData } = useMainContext();
   return (
-    <div className="mt-5">
+    <div className="mt-14">
       <Title title={"Today's Highlights"} />
-      <div className="grid grid-cols-3 gap-x-14 gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <HighlightsItem subtitle="Tempratures">
+          <Tempratures
+            tempMax={weatherData.tempMax}
+            tempMin={weatherData.tempMin}
+          />
+        </HighlightsItem>
+        <HighlightsItem subtitle="Humidity">
+          <Humidity humidity={weatherData.humidity} />
+        </HighlightsItem>
         <HighlightsItem subtitle="Sunrise & Sunset">
           <SunriseSunset
             sunrise={weatherData.sunrise}
             sunset={weatherData.sunset}
           />
         </HighlightsItem>
-        <HighlightsItem subtitle="Humidity">
-          <Humidity humidity={weatherData.humidity} />
-        </HighlightsItem>
         <HighlightsItem subtitle="Wind Status">
           <WindStatus
             windSpeed={weatherData.windSpeed}
             windDeg={weatherData.windDeg}
-          />
-        </HighlightsItem>
-        <HighlightsItem subtitle="Tempratures">
-          <Tempratures
-            tempMax={weatherData.tempMax}
-            tempMin={weatherData.tempMin}
           />
         </HighlightsItem>
       </div>

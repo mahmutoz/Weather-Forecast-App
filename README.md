@@ -22,3 +22,9 @@ In the project directory, you can run:
 yarn start
 yarn run watch
 ```
+
+## Icons
+
+- [Weather-icon](https://basmilius.github.io/weather-icons/)
+- [React icons](https://react-icons.github.io/react-icons/)
+- [Openweathermap Icons](https://openweathermap.org/weather-conditions)

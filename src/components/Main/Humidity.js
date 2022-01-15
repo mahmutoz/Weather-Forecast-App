@@ -5,8 +5,10 @@ function Humidity({ humidity }) {
     <div>
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-6xl font-semibold">{humidity}</span>
-          <span className="text-xl">%</span>
+          <span className="text-6xl font-semibold text-sky-500">
+            {humidity}
+          </span>
+          <span className="text-md font-semibold text-gray-500">%</span>
         </div>
         <figure>
           <img
@@ -16,7 +18,7 @@ function Humidity({ humidity }) {
           />
         </figure>
       </div>
-      <p className="text-xl font-semibold text-gray-600 pt-4">
+      <p className="text-xl font-semibold text-gray-600 pt-2">
         {humidity < 30
           ? 'Low 👎🏻'
           : humidity >= 30 && humidity < 60

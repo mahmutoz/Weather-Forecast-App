@@ -8,7 +8,7 @@ function CurrentWeather() {
 
   return loading ? (
     <div>
-      <h2 className="text-center pt-3 text-2xl text-gray-700 font-semibold max-w-xs">
+      <h2 className="text-center pt-3 text-2xl text-sky-500 font-semibold max-w-xs">
         {weatherData.location + ', ' + weatherData.country}{' '}
       </h2>
       <figure className="flex items-center justify-center">
@@ -19,18 +19,18 @@ function CurrentWeather() {
         />
       </figure>
       <div className="flex h-full flex-col justify-center items-center">
-        <div className="flex h-36 w-36 justify-center items-center mb-3 shadow-xl rounded-full p-6">
-          <span className="text-6xl">
+        <div className="flex h-36 w-36 justify-center items-center mb-3 shadow-xl rounded-full p-6 border border-gray-100">
+          <span className="text-6xl text-sky-500">
             <strong>{weatherData.temperature}</strong>
           </span>
-          <span className="text-3xl pb-5">°</span>
-          <span className="text-2xl pb-4">C</span>
+          <span className="text-3xl pb-5 text-gray-400">°</span>
+          <span className="text-2xl pb-4 text-gray-400">C</span>
         </div>
         <span className="text-gray-500 text-sm font-semibold mt-4">
           Feels Like: {weatherData.feelsLike}°
         </span>
         <div className="flex items-end mt-4">
-          <span className="text-3xl font-semibold pr-2">
+          <span className="text-3xl text-sky-500 font-semibold pr-2">
             {weatherData.day},
           </span>
           <time className="text-gray-400">{weatherData.hours}</time>

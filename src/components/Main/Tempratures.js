@@ -6,7 +6,7 @@ function Tempratures({ tempMax, tempMin }) {
       <div className="flex items-center">
         <figure>
           <img
-            className="w-20 mr-3"
+            className="w-24"
             src={require(`../../icons/thermometer-warmer.svg`)}
             alt="sunrise"
           />
@@ -19,7 +19,7 @@ function Tempratures({ tempMax, tempMin }) {
       <div className="flex items-center">
         <figure>
           <img
-            className="w-20 mr-3"
+            className="w-24"
             src={require(`../../icons/thermometer-colder.svg`)}
             alt="sunrise"
           />

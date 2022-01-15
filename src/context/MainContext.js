@@ -4,7 +4,6 @@ const MainContext = createContext();
 export const MainProvider = ({ children }) => {
   const [search, setSearch] = useState('Kocaeli');
   const [weatherData, setWeatherData] = useState([]);
-  const [isLatLon, setIsLatLon] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const values = {
@@ -12,8 +11,6 @@ export const MainProvider = ({ children }) => {
     setSearch,
     weatherData,
     setWeatherData,
-    isLatLon,
-    setIsLatLon,
     loading,
     setLoading,
   };

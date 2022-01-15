@@ -11,7 +11,7 @@ function AllForecast() {
   return loading ? (
     <div>
       <Title title={'24 Hours'} />
-      <ul className="grid grid-cols-8 gap-2 mt-4">
+      <ul className="grid grid-cols-2 xl:grid-cols-8 md:grid-cols-3 gap-3 md:gap-6 lg:gap-2 mt-4">
         {weatherData?.list?.map((list, index) => (
           <ForecastDayItem
             key={index}

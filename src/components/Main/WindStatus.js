@@ -2,11 +2,11 @@ import React from 'react';
 
 function WindStatus({ windSpeed, windDeg }) {
   return (
-    <div>
+    <div className="flex flex-col justify-around h-full">
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-6xl font-bold">{windSpeed}</span>
-          <span className="text-sm font-bold">Km/h</span>
+          <span className="text-6xl font-bold text-sky-500">{windSpeed}</span>
+          <span className="text-xs font-bold text-gray-500">Km/h</span>
         </div>
         <figure>
           <img

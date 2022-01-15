@@ -9,8 +9,7 @@ const api = {
 const lang = navigator.language;
 
 export function useWeather() {
-  const { weatherData, setWeatherData, search, isLatLon, setLoading } =
-    useMainContext();
+  const { weatherData, setWeatherData, search, setLoading } = useMainContext();
 
   useEffect(() => {
     axios(
