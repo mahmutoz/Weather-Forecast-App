@@ -9,21 +9,20 @@ const api = {
 const lang = navigator.language;
 
 export function useWeather() {
-  const { weatherData, setWeatherData, search, setLoading } = useMainContext();
+  const { setWeatherData, search, setLoading, isCelcius } = useMainContext();
 
   useEffect(() => {
     axios(
-      `${api.base}/forecast?q=${search}&units=metric&cnt=9&appid=${api.key}&lang=${lang}`
+      `${api.base}/forecast?q=${search}&units=${isCelcius}&cnt=9&appid=${api.key}&lang=${lang}`
     ).then((result) => {
       if (result.status === 200) {
-        console.log('All Data:', result);
         setWeatherData(getProperties(result.data));
         setLoading(true);
       } else {
         setLoading(false);
       }
     });
-  }, [search]);
+  }, [search, isCelcius]);
 }
 
 function getProperties(weatherData) {

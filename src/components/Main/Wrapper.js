@@ -5,13 +5,13 @@ import Main from './Main';
 
 function Wrapper() {
   return (
-    <main className="container h-full grid grid-flow-row lg:grid-flow-col justify-center bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+    <div className="container h-full grid grid-flow-row lg:grid-flow-col justify-center bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
       <div className="block lg:hidden p-4 bg-sky-100 dark:bg-gray-700">
         <Info />
       </div>
       <Sidebar />
       <Main />
-    </main>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import { useMainContext } from '../../context/MainContext';
 import Loading from './Loading';
 
 function CurrentWeather() {
-  const { weatherData, loading } = useMainContext();
+  const { weatherData, loading, isCelcius } = useMainContext();
 
   return loading ? (
     <div>
@@ -18,7 +18,7 @@ function CurrentWeather() {
         />
       </figure>
       <div className="flex h-full flex-col justify-center items-center">
-        <div className="flex h-36 w-36 justify-center items-center mb-3 shadow-xl rounded-full p-6 border border-gray-100 dark:border-gray-600">
+        <div className="flex h-24 w-44 justify-center items-center mb-3 shadow-xl rounded-full p-6 border border-gray-100 dark:border-gray-600">
           <span className="text-6xl text-sky-500">
             <strong>{weatherData.temperature}</strong>
           </span>
@@ -26,7 +26,7 @@ function CurrentWeather() {
             °
           </span>
           <span className="text-2xl pb-4 text-gray-400 dark:text-gray-200">
-            C
+            {isCelcius === 'metric' ? 'C' : 'F'}
           </span>
         </div>
         <span className="text-gray-500 dark:text-gray-200 text-sm font-semibold mt-4">
