@@ -11,7 +11,7 @@ function Tempratures({ tempMax, tempMin }) {
             alt="sunrise"
           />
         </figure>
-        <span className="text-xl text-gray-600 font-semibold">
+        <span className="text-xl text-gray-600 dark:text-gray-200 font-semibold">
           <span className="font-semibold">Max: </span>
           <span className="font-normal">{tempMax}°</span>
         </span>
@@ -24,7 +24,7 @@ function Tempratures({ tempMax, tempMin }) {
             alt="sunrise"
           />
         </figure>
-        <span className="text-xl text-gray-600 font-semibold">
+        <span className="text-xl text-gray-600 dark:text-gray-200 font-semibold">
           <span className="font-semibold pr-1">Min: </span>
           <span className="font-normal">{tempMin}°</span>
         </span>

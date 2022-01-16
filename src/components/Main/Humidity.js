@@ -8,7 +8,9 @@ function Humidity({ humidity }) {
           <span className="text-6xl font-semibold text-sky-500">
             {humidity}
           </span>
-          <span className="text-md font-semibold text-gray-500">%</span>
+          <span className="text-md font-semibold text-gray-500 dark:text-gray-300">
+            %
+          </span>
         </div>
         <figure>
           <img
@@ -18,7 +20,7 @@ function Humidity({ humidity }) {
           />
         </figure>
       </div>
-      <p className="text-xl font-semibold text-gray-600 pt-2">
+      <p className="text-xl font-semibold text-gray-600 dark:text-gray-200 pt-2">
         {humidity < 30
           ? 'Low 👎🏻'
           : humidity >= 30 && humidity < 60

@@ -1,5 +1,4 @@
 import React from 'react';
-import SubTitle from './SubTitle';
 
 function SunriseSunset({ sunrise, sunset }) {
   return (
@@ -12,7 +11,9 @@ function SunriseSunset({ sunrise, sunset }) {
             alt="sunrise"
           />
         </figure>
-        <span className="text-xl text-gray-600 font-semibold">{sunrise}</span>
+        <span className="text-xl text-gray-600 dark:text-gray-200 font-semibold">
+          {sunrise}
+        </span>
       </div>
       <div className="flex items-center">
         <figure>
@@ -22,7 +23,9 @@ function SunriseSunset({ sunrise, sunset }) {
             alt="sunrise"
           />
         </figure>
-        <span className="text-xl text-gray-600 font-semibold">{sunset}</span>
+        <span className="text-xl text-gray-600 dark:text-gray-200 font-semibold">
+          {sunset}
+        </span>
       </div>
     </div>
   );

@@ -9,7 +9,4 @@
   body {
     font-family: 'Mulish', sans-serif;
   }
-  #root {
-    @apply grid place-items-center min-h-screen py-20 px-5 bg-gray-700;
-  }
 }

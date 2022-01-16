@@ -6,7 +6,9 @@ function WindStatus({ windSpeed, windDeg }) {
       <div className="flex items-center justify-between">
         <div>
           <span className="text-6xl font-bold text-sky-500">{windSpeed}</span>
-          <span className="text-xs font-bold text-gray-500">Km/h</span>
+          <span className="text-xs font-bold text-gray-500 dark:text-gray-300">
+            Km/h
+          </span>
         </div>
         <figure>
           <img
@@ -16,7 +18,7 @@ function WindStatus({ windSpeed, windDeg }) {
           />
         </figure>
       </div>
-      <div className="flex items-center text-xl font-semibold text-gray-600">
+      <div className="flex items-center text-xl font-semibold text-gray-600 dark:text-gray-200">
         <figure>
           <img
             className="w-16"
