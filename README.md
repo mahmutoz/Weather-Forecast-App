@@ -1,5 +1,7 @@
 # Weather Forecast App 🌞
 
+![](weather-app.gif)
+
 ### [See it live](https://weather-forecast-react-application.netlify.app/) ↗
 
 ## Getting Started
