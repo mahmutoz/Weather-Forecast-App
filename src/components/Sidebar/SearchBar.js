@@ -6,7 +6,7 @@ import { useWeather } from '../../hooks/useWeather';
 function SearchBar() {
   const { search, setSearch } = useMainContext();
 
-  useWeather(search);
+  useWeather();
   return (
     <div className="flex items-center bg-white dark:bg-gray-500 border border-gray-200 dark:border-gray-900 rounded-2xl overflow-hidden">
       <label

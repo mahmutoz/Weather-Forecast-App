@@ -28,9 +28,7 @@ export function useWeather() {
 function getProperties(weatherData) {
   const mappedData = {
     location: weatherData.city.name,
-    condition: weatherData.cod,
     day: convertDate(weatherData.list[0].dt).weakDay,
-    dayShort: convertDate(weatherData.list[0].dt, 'short').weakDay,
     hours: weatherData.list[0].dt_txt
       .split(' ')[1]
       .split(':')

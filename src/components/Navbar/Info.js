@@ -39,7 +39,7 @@ function Info() {
       </div>
       <button
         onClick={() => setIsDark(isDark === '' ? 'dark' : '')}
-        className="group mr-5 dark:bg-gray-600 border border-gray-300 hover:border-gray-400 p-0.5 dark:border-gray-900 dark:hover:border-gray-500 rounded-full transition-all"
+        className="group mr-5 dark:bg-gray-600 border border-gray-300 hover:border-gray-400 p-0.5 dark:border-gray-600 dark:hover:border-gray-500 rounded-full transition-all"
       >
         {isDark ? (
           <figure>
