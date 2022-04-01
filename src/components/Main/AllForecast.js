@@ -7,6 +7,7 @@ import Loading from 'components/Sidebar/Loading';
 
 function AllForecast() {
   const { weatherData, loading } = useMainContext();
+
   return loading ? (
     <div>
       <Title title={'24 Hours'} />

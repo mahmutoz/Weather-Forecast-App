@@ -5,7 +5,7 @@ import Main from './Main';
 
 function Wrapper() {
   return (
-    <div className="container h-full grid grid-flow-row lg:grid-flow-col justify-center bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+    <div className="wrapper">
       <div className="block lg:hidden p-4 bg-sky-100 dark:bg-gray-700">
         <Info />
       </div>

@@ -9,4 +9,59 @@
   body {
     font-family: 'Mulish', sans-serif;
   }
+  .main {
+    @apply grid place-items-center min-h-screen p-4 lg:p-16 bg-gradient-to-tr from-sky-100 to-sky-300 dark:bg-gradient-to-tr dark:from-gray-600 dark:to-gray-900;
+  }
+
+  .wrapper {
+    @apply container h-full grid grid-flow-row lg:grid-flow-col justify-center bg-white dark:bg-gray-900 rounded-3xl overflow-hidden;
+  }
+
+  .sidebar {
+    @apply mx-auto bg-white dark:bg-gray-900 p-8 max-w-xs;
+  }
+
+  .searchbar {
+    @apply flex items-center bg-white dark:bg-gray-500 border border-gray-200 dark:border-gray-900 rounded-2xl overflow-hidden;
+  }
+
+  .searchbar-label {
+    @apply flex items-center justify-center w-8 h-8 pl-2 bg-white dark:bg-gray-700;
+  }
+
+  .searchbar-icon {
+    @apply pr-1 text-gray-700 dark:text-gray-300;
+  }
+
+  .searchbar-input {
+    @apply h-8 outline-none bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-100 text-sm px-2 w-full;
+  }
+
+  .weather-title {
+    @apply text-center pt-3 text-2xl text-sky-500 font-semibold max-w-xs;
+  }
+
+  .weather-body {
+    @apply flex h-full flex-col justify-center items-center;
+  }
+
+  .weather-inner {
+    @apply flex h-24 w-44 justify-center items-center mb-3 shadow-xl rounded-full p-6 border border-gray-100 dark:border-gray-600;
+  }
+
+  .title {
+    @apply inline-block text-3xl text-sky-500 font-bold mb-3 mt-4;
+  }
+
+  .loading {
+    @apply relative flex justify-center items-center h-3/4;
+  }
+
+  .loading-inner {
+    @apply rounded animate-spin duration-300 w-10 h-10 border-2 border-indigo-500;
+  }
+
+  .subtitle {
+    @apply text-xl font-semibold text-gray-400 dark:text-gray-300 mb-3;
+  }
 }

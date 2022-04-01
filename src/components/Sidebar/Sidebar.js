@@ -4,7 +4,7 @@ import CurrentWeather from './CurrentWeather';
 
 function Sidebar() {
   return (
-    <aside className="mx-auto bg-white dark:bg-gray-900 p-8 max-w-xs">
+    <aside className="sidebar">
       <SearchBar />
       <CurrentWeather />
     </aside>

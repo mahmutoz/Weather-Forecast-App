@@ -7,7 +7,7 @@ function CurrentWeather() {
 
   return loading ? (
     <div>
-      <h2 className="text-center pt-3 text-2xl text-sky-500 font-semibold max-w-xs">
+      <h2 className="weather-title">
         {weatherData.location + ', ' + weatherData.country}{' '}
       </h2>
       <figure className="flex items-center justify-center">
@@ -17,8 +17,8 @@ function CurrentWeather() {
           alt={weatherData.description}
         />
       </figure>
-      <div className="flex h-full flex-col justify-center items-center">
-        <div className="flex h-24 w-44 justify-center items-center mb-3 shadow-xl rounded-full p-6 border border-gray-100 dark:border-gray-600">
+      <div className="weather-body">
+        <div className="weather-inner">
           <span className="text-6xl text-sky-500">
             <strong>{weatherData.temperature}</strong>
           </span>

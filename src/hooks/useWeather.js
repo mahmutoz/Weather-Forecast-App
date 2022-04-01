@@ -9,20 +9,28 @@ const api = {
 const lang = navigator.language;
 
 export function useWeather() {
-  const { setWeatherData, search, setLoading, isCelcius } = useMainContext();
+  const { setWeatherData, search, setSearch, setLoading, isCelcius } =
+    useMainContext();
 
   useEffect(() => {
     axios(
       `${api.base}/forecast?q=${search}&units=${isCelcius}&cnt=9&appid=${api.key}&lang=${lang}`
-    ).then((result) => {
-      if (result.status === 200) {
-        setWeatherData(getProperties(result.data));
-        setLoading(true);
-      } else {
-        setLoading(false);
-      }
-    });
-  }, [search, isCelcius]);
+    )
+      .then((result) => {
+        if (result.status === 200) {
+          setWeatherData(getProperties(result.data));
+          setLoading(true);
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch((e) => {
+        setSearch('Kocaeli');
+      })
+      .finally(() => {
+        console.clear();
+      });
+  }, [search, setLoading, setWeatherData, setSearch, isCelcius]);
 }
 
 function getProperties(weatherData) {
